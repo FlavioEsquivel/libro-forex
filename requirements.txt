@@ -1,0 +1,9 @@
+# Requisitos del proyecto
+
+pandas
+numpy
+scikit-learn
+yfinance
+statsmodels
+fastapi
+tensorflow
