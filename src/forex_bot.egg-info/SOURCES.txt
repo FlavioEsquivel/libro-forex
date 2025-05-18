@@ -1,0 +1,10 @@
+README.md
+setup.py
+src/forex_bot.egg-info/PKG-INFO
+src/forex_bot.egg-info/SOURCES.txt
+src/forex_bot.egg-info/dependency_links.txt
+src/forex_bot.egg-info/entry_points.txt
+src/forex_bot.egg-info/top_level.txt
+src/models/__init__.py
+src/services/__init__.py
+src/strategies/__init__.py
