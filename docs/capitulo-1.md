@@ -19,9 +19,9 @@ El Forex permite convertir una divisa en otra, y los precios son determinados po
 
 En el mercado Forex, las divisas se negocian siempre en pares, donde la primera divisa es la **moneda base** y la segunda es la **moneda cotizada**. Por ejemplo:
 
-$$
+$$ 
 \operatorname{EUR/USD} = \frac{\operatorname{USD}}{1\, \operatorname{EUR}}
-$$
+ $$
 
 Esto significa que el precio del par indica cuántos dólares estadounidenses (USD) se necesitan para comprar 1 euro (EUR).
 
@@ -51,15 +51,15 @@ El spread es \(0.0002\) USD o 2 pips.
 
 Ejemplo: para comprar 1,000 euros al Ask 1.1012 pagarás:
 
-$$
+$$ 
 1000 \times 1.1012 = 1101.2 \mathrm{ USD}
-$$
+ $$
 
 Para vender 1,000 euros al Bid 1.1010 recibirás:
 
-$$
+$$ 
 1000 \times 1.1010 = 1101.0 \mathrm{ USD}
-$$
+ $$
 
 ---
 
@@ -67,9 +67,9 @@ $$
 
 La diferencia entre el precio de compra y venta implica un costo para el trader, que se calcula como:
 
-$$
+$$ 
 \mathrm{Costo por spread} = Q \times (P_{ask} - P_{bid})
-$$
+ $$
 
 donde \(Q\) es la cantidad en euros.
 
@@ -125,15 +125,15 @@ El uso adecuado del apalancamiento requiere una gestión estricta del riesgo. Un
 
 El **margen** es el capital requerido como garantía para abrir una posición apalancada. No se trata de un costo, sino de una retención temporal de capital.
 
-\[
-\text{Margen requerido} = \frac{\text{Tamaño de la operación}}{\text{Apalancamiento}}
-\]
+$$ 
+\mathrm{Margen requerido} = \frac{\mathrm{Tamaño de la operación}}{\mathrm{Apalancamiento}}
+ $$
 
 > Por ejemplo, para abrir una posición de 100,000 USD con apalancamiento 1:100 necesitas un margen de:
 
-\[
-\frac{100,000}{100} = 1,000 \text{ USD}
-\]
+$$ 
+\frac{100,000}{100} = 1,000 \mathrm{ USD}
+ $$
 
 **Margen de mantenimiento:** Es el mínimo que debes tener en la cuenta para mantener una posición abierta. Si tu capital cae por debajo de ese nivel, se produce una **margin call**, y tus operaciones pueden cerrarse automáticamente.
 
@@ -170,21 +170,21 @@ Las **órdenes** son instrucciones que se dan a la plataforma de trading para ab
 Supongamos que deseas comprar 1 lote de EUR/USD (100,000 euros) con un apalancamiento 1:100. El precio actual es 1.1010.
 
 - Margen requerido:  
-  \[
-  \frac{100,000}{100} = 1,000 \text{ USD}
-  \]
+  $$ 
+  \frac{100,000}{100} = 1,000 \mathrm{ USD}
+   $$
 
 - Colocas una orden límite de compra en 1.1000 con un stop-loss en 1.0950 y un take-profit en 1.1100.
 
 - Si se ejecuta y alcanza el TP:
-  \[
-  (1.1100 - 1.1000) \times 100,000 = 1,000 \text{ USD de ganancia}
-  \]
+  $$ 
+  (1.1100 - 1.1000) \times 100,000 = 1,000 \mathrm{ USD de ganancia}
+   $$
 
 - Si cae al SL:
-  \[
-  (1.1000 - 1.0950) \times 100,000 = 500 \text{ USD de pérdida}
-  \]
+  $$ 
+  (1.1000 - 1.0950) \times 100,000 = 500 \mathrm{ USD de pérdida}
+   $$
 
 Este ejemplo demuestra cómo el lote, el apalancamiento, el margen y las órdenes se combinan en una operación real.
 
@@ -218,29 +218,29 @@ La combinación de **educación técnica**, **gestión del riesgo**, y **control
 
 La media es el promedio de un conjunto de precios \( x_1, x_2, ..., x_n \):
 
-$$
+$$ 
 \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
-$$
+ $$
 
 La varianza mide la dispersión:
 
-$$
+$$ 
 \sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2
-$$
+ $$
 
 La desviación estándar es la raíz cuadrada de la varianza:
 
-$$
+$$ 
 \sigma = \sqrt{\sigma^2}
-$$
+ $$
 
 ### Correlación
 
 Para dos series \(X = \{x_i\}\) y \(Y = \{y_i\}\), la correlación de Pearson es:
 
-$$
+$$ 
 \rho_{X,Y} = \frac{\mathrm{cov}(X,Y)}{\sigma_X \sigma_Y} = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
-$$
+ $$
 
 Va entre -1 y 1, indicando fuerza y dirección de relación lineal.
 
@@ -254,15 +254,15 @@ Modelos simples para analizar series temporales incluyen:
 
 - **Media móvil (MA):**
 
-$$
+$$ 
 MA_t = \frac{1}{m} \sum_{i=0}^{m-1} p_{t-i}
-$$
+ $$
 
 - **Modelos autorregresivos (AR):**
 
-$$
+$$ 
 p_t = c + \sum_{i=1}^k \phi_i p_{t-i} + \epsilon_t
-$$
+ $$
 
 donde \(\epsilon_t\) es ruido blanco (valores aleatorios con media cero y varianza constante).
 
