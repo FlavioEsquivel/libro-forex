@@ -1,0 +1,9 @@
+site_name: Libro Forex
+theme:
+  name: material
+
+markdown_extensions:
+  - pymdownx.arithmatex
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

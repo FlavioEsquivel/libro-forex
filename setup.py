@@ -6,8 +6,6 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
-        # Aquí puedes listar las dependencias que usarás
-        # Ejemplo: "requests", "pandas"
     ],
     entry_points={
         "console_scripts": [
