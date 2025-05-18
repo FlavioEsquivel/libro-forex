@@ -7,7 +7,7 @@ Este proyecto es una guía práctica para aprender Forex desde una perspectiva c
 ## 📚 Índice del Libro
 
 ### Parte I: Fundamentos del Forex y las Finanzas Cuantitativas
-1. Introducción al Mercado Forex
+- [Capítulo 1: Introducción al Forex](capitulo-1.md)
 2. Matemáticas Básicas para el Trading
 3. Modelos de Series Temporales
 
