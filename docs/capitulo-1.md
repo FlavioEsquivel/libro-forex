@@ -378,52 +378,117 @@ Calcula la media, varianza y correlación de los precios históricos de dos pare
 
 ---
 
-## 1.5 Series temporales
+# 1.5 Series temporales
 
-Los precios Forex se pueden ver como una serie temporal \( \{p_t\} \), donde \(t\) es el tiempo.
-
-Modelos simples para analizar series temporales incluyen:
-
-- **Media móvil (MA):**
-
-$$ 
-MA_t = \frac{1}{m} \sum_{i=0}^{m-1} p_{t-i}
- $$
-
-- **Modelos autorregresivos (AR):**
-
-$$ 
-p_t = c + \sum_{i=1}^k \phi_i p_{t-i} + \epsilon_t
- $$
-
-donde \(\epsilon_t\) es ruido blanco (valores aleatorios con media cero y varianza constante).
+Los precios Forex se pueden modelar y analizar como una **serie temporal** \( \{p_t\} \), donde \(t\) representa el tiempo (por ejemplo, días, minutos o segundos). El análisis de series temporales permite detectar patrones, tendencias, ciclos y volatilidad en los precios que son esenciales para la toma de decisiones en trading.
 
 ---
 
-## Código de ejemplo: Estadísticas básicas y visualización
+## Conceptos básicos
+
+- **Serie temporal:** secuencia de datos ordenada en el tiempo.
+- **Estacionariedad:** propiedad de una serie donde sus estadísticas (media, varianza) son constantes a lo largo del tiempo.
+- **Ruido blanco:** una serie de valores aleatorios con media cero y varianza constante, sin autocorrelación.
+- **Autocorrelación:** medida de correlación entre valores de la serie en diferentes tiempos.
+
+---
+
+## Modelos simples para analizar series temporales
+
+### Media móvil (MA)
+
+La media móvil suaviza las fluctuaciones cortas y resalta tendencias a largo plazo:
+
+$$
+MA_t = \frac{1}{m} \sum_{i=0}^{m-1} p_{t-i}
+$$
+
+donde \(m\) es la ventana de tiempo (por ejemplo, 20 días).
+
+### Modelos autorregresivos (AR)
+
+Un modelo AR de orden \(k\) expresa el valor actual como función lineal de los \(k\) valores anteriores más un término de error:
+
+$$
+p_t = c + \sum_{i=1}^k \phi_i p_{t-i} + \epsilon_t
+$$
+
+- \(c\): constante
+- \(\phi_i\): coeficientes de autoregresión
+- \(\epsilon_t\): ruido blanco
+
+---
+
+## Modelos para volatilidad: GARCH
+
+Los precios financieros no solo muestran tendencia, sino que su volatilidad cambia con el tiempo. Los modelos GARCH (Generalized Autoregressive Conditional Heteroskedasticity) capturan estas variaciones de volatilidad condicional.
+
+El modelo GARCH(1,1) más común se define como:
+
+$$
+\sigma_t^2 = \alpha_0 + \alpha_1 \epsilon_{t-1}^2 + \beta_1 \sigma_{t-1}^2
+$$
+
+- \(\sigma_t^2\): varianza condicional en el tiempo \(t\)
+- \(\epsilon_t\): innovación (residual) en el tiempo \(t\)
+- \(\alpha_0, \alpha_1, \beta_1\): parámetros del modelo (todos positivos y \(\alpha_1 + \beta_1 < 1\))
+
+Este modelo captura la "heteroscedasticidad condicional", es decir, que la varianza cambia con el tiempo dependiendo de eventos pasados.
+
+---
+
+## Ejemplo en Python: Análisis y modelado con GARCH
 
 ```python
+# Archivo analisis_serie_temporal.py
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Cargar datos históricos de EUR/USD
-data = pd.read_csv("data/EURUSD.csv", parse_dates=['Date'], index_col='Date')
+# Crear carpetas de salida si no existen
+os.makedirs("output/graficas", exist_ok=True)
+os.makedirs("output/resultados", exist_ok=True)
 
-# Calcular media y desviación estándar del precio de cierre
-mean_close = data['Close'].mean()
-std_close = data['Close'].std()
+# Cargar datos
+data = pd.read_csv("data/EURUSD.csv", parse_dates=["Date"], index_col="Date")
 
-print(f"Media precio cierre: {mean_close:.5f}")
-print(f"Desviación estándar: {std_close:.5f}")
+# Estadísticas básicas
+mean_close = data["Close"].mean()
+std_close = data["Close"].std()
 
-# Graficar precio de cierre y media móvil simple (SMA 20)
-data['SMA20'] = data['Close'].rolling(window=20).mean()
+# Guardar estadísticas en un archivo de texto
+with open("output/resultados/estadisticas.txt", "w") as f:
+    f.write(f"Media precio cierre: {mean_close:.5f}\n")
+    f.write(f"Desviación estándar: {std_close:.5f}\n")
 
-plt.figure(figsize=(12,6))
-plt.plot(data['Close'], label='Precio Cierre')
-plt.plot(data['SMA20'], label='SMA 20 días')
-plt.title('EUR/USD Precio Cierre y SMA 20')
-plt.xlabel('Fecha')
-plt.ylabel('Precio')
+# Calcular media móvil
+data["SMA20"] = data["Close"].rolling(window=20).mean()
+
+# Crear gráfico
+plt.figure(figsize=(12, 6))
+plt.plot(data["Close"], label="Precio Cierre")
+plt.plot(data["SMA20"], label="SMA 20 días")
+plt.title("EUR/USD: Precio Cierre y Media Móvil (SMA 20)")
+plt.xlabel("Fecha")
+plt.ylabel("Precio")
 plt.legend()
-plt.show()
+
+# Guardar la gráfica con nombre descriptivo
+plt.savefig("output/graficas/eurusd_sma20.png")
+print("Gráfica guardada en: output/graficas/eurusd_sma20.png")
+```
+
+---
+
+## Explicación del código
+
+1. **Cálculo de log-retornos:** Es usual trabajar con retornos logarítmicos para modelar series financieras, ya que estabilizan la varianza y convierten multiplicaciones en sumas.
+2. **Visualización:** Graficamos el precio y sus retornos para observar patrones y volatilidad.
+3. **Modelo GARCH:** Ajustamos un modelo GARCH(1,1) para capturar la volatilidad variable.
+4. **Resultados:** Se muestra un resumen del ajuste y una gráfica de la volatilidad estimada en el tiempo.
+
+---
+
+## Conclusión
+
+El análisis de series temporales en Forex es fundamental para entender la dinámica de los precios y la volatilidad. Desde métodos simples como medias móviles hasta modelos avanzados como GARCH, las herramientas estadísticas permiten tomar mejores decisiones en trading y gestión de riesgos.
