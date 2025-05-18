@@ -214,35 +214,167 @@ La combinación de **educación técnica**, **gestión del riesgo**, y **control
 
 ## 1.4 Matemáticas básicas para Forex
 
+El trading en Forex no es solo cuestión de intuición o suerte, sino que se basa en el análisis riguroso de datos históricos y actuales. Para ello, es fundamental comprender algunos conceptos matemáticos básicos que permiten interpretar y predecir el comportamiento de los precios.
+
+---
+
 ### Media y Varianza
 
-La media es el promedio de un conjunto de precios \( x_1, x_2, ..., x_n \):
+#### 1. Media aritmética
 
-$$ 
+La **media aritmética** es la medida estadística más común que resume un conjunto de datos mediante un único valor representativo. En Forex, se utiliza para analizar precios históricos, como precios de cierre, máximos o mínimos.
+
+Para un conjunto de precios \( x_1, x_2, \dots, x_n \), la media se calcula como:
+
+$$
 \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
- $$
+$$
 
-La varianza mide la dispersión:
+**Interpretación:**  
+- La media nos indica el valor "central" o esperado de la serie de precios.
+- En análisis técnico, la media móvil (simple o ponderada) es una herramienta que suaviza las fluctuaciones del mercado para detectar tendencias.
 
-$$ 
+#### 2. Varianza
+
+La **varianza** es una medida que cuantifica la dispersión o variabilidad de los datos respecto a la media:
+
+$$
 \sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2
- $$
+$$
 
-La desviación estándar es la raíz cuadrada de la varianza:
+**Interpretación:**  
+- Una varianza alta indica que los precios tienen grandes fluctuaciones, es decir, el activo es volátil.
+- Una varianza baja indica precios más estables.
+- En Forex, la varianza es clave para gestionar el riesgo: activos con alta varianza pueden ofrecer mayores oportunidades, pero también mayores pérdidas.
 
-$$ 
-\sigma = \sqrt{\sigma^2}
- $$
+#### 3. Desviación estándar
+
+La **desviación estándar** es la raíz cuadrada de la varianza:
+
+$$
+\sigma = \sqrt{\sigma^2} = \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2}
+$$
+
+Esta métrica mantiene las unidades originales de los datos (por ejemplo, dólares).
+
+**Importancia en Forex:**  
+- Permite definir rangos de volatilidad, por ejemplo, para construir indicadores como las Bandas de Bollinger, que muestran zonas de sobrecompra o sobreventa.
+- Ayuda a calcular el riesgo y determinar niveles apropiados para órdenes de stop-loss.
+
+---
 
 ### Correlación
 
-Para dos series \(X = \{x_i\}\) y \(Y = \{y_i\}\), la correlación de Pearson es:
+La **correlación de Pearson** mide la fuerza y dirección de una relación lineal entre dos variables aleatorias, que en Forex suelen ser series temporales de precios de distintos pares de divisas.
 
-$$ 
-\rho_{X,Y} = \frac{\mathrm{cov}(X,Y)}{\sigma_X \sigma_Y} = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
- $$
+Para dos series \( X = \{x_1, \dots, x_n\} \) y \( Y = \{y_1, \dots, y_n\} \), la correlación es:
 
-Va entre -1 y 1, indicando fuerza y dirección de relación lineal.
+$$
+\rho_{X,Y} = \frac{\mathrm{cov}(X,Y)}{\sigma_X \sigma_Y}
+= \frac{
+\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})
+}{
+\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}
+}
+$$
+
+Donde:  
+- \( \mathrm{cov}(X,Y) \) es la covarianza entre \( X \) y \( Y \), que indica cómo varían conjuntamente.
+- \( \sigma_X \) y \( \sigma_Y \) son las desviaciones estándar de cada serie.
+
+**Interpretación:**  
+- \( \rho = 1 \): correlación positiva perfecta (ambos activos se mueven en la misma dirección y proporción).
+- \( \rho = -1 \): correlación negativa perfecta (se mueven en direcciones opuestas).
+- \( \rho = 0 \): no existe correlación lineal.
+
+**Aplicación práctica:**  
+- Identificar pares de divisas que se mueven juntos para diversificar o para estrategias de cobertura.
+- Predecir movimientos de un par a partir de otro correlacionado.
+
+---
+
+### Aplicaciones avanzadas en Forex
+
+#### Media móvil y su importancia
+
+La media móvil suaviza las series de precios, eliminando ruido para detectar tendencias a corto, mediano y largo plazo.
+
+- **Media móvil simple (SMA):** promedio aritmético móvil.
+- **Media móvil exponencial (EMA):** pondera más los precios recientes, respondiendo mejor a cambios recientes.
+
+Se usa en sistemas de trading para generar señales de compra y venta (cruces de medias móviles).
+
+#### Volatilidad y gestión del riesgo
+
+La desviación estándar es la base para medir volatilidad, que es clave para:
+
+- Ajustar tamaños de posición.
+- Definir niveles de stop-loss con un margen adecuado para evitar salidas prematuras por fluctuaciones normales.
+- Establecer expectativas sobre posibles movimientos de precio.
+
+#### Correlación para portafolios Forex
+
+La correlación es crucial para crear portafolios balanceados:
+
+- Combinar activos con baja o negativa correlación puede reducir el riesgo total.
+- Un trader puede evitar posiciones redundantes en pares que se mueven casi idénticamente.
+
+---
+
+### Ejemplos numéricos
+
+Supongamos los precios diarios de cierre de EUR/USD durante 5 días:
+
+| Día | Precio (USD) |
+|------|------------|
+| 1    | 1.1000     |
+| 2    | 1.1020     |
+| 3    | 1.0980     |
+| 4    | 1.1050     |
+| 5    | 1.1070     |
+
+- **Media:**
+
+$$
+\bar{x} = \frac{1.1000 + 1.1020 + 1.0980 + 1.1050 + 1.1070}{5} = 1.1024
+$$
+
+- **Varianza:**
+
+$$
+\sigma^2 = \frac{(1.1000 - 1.1024)^2 + (1.1020 - 1.1024)^2 + \dots + (1.1070 - 1.1024)^2}{5} = 7.04 \times 10^{-6}
+$$
+
+- **Desviación estándar:**
+
+$$
+\sigma = \sqrt{7.04 \times 10^{-6}} = 0.00265
+$$
+
+Esto indica que la volatilidad diaria promedio es aproximadamente 0.00265 USD.
+
+---
+
+### Resumen
+
+Estos conceptos matemáticos son fundamentales para cualquier trader serio de Forex. Permiten cuantificar el riesgo, identificar oportunidades y construir estrategias basadas en datos objetivos y no en conjeturas.
+
+---
+
+**Ejercicio práctico:**  
+Calcula la media, varianza y correlación de los precios históricos de dos pares de divisas y analiza cómo esta información podría influir en tus decisiones de trading.
+
+---
+
+## Fórmulas clave
+
+| Concepto           | Fórmula                                                                                 |
+|--------------------|-----------------------------------------------------------------------------------------|
+| Media aritmética    | \( \displaystyle \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i \)                            |
+| Varianza           | \( \displaystyle \sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2 \)              |
+| Desviación estándar | \( \displaystyle \sigma = \sqrt{\sigma^2} \)                                           |
+| Correlación        | \( \displaystyle \rho_{X,Y} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i-\bar{x})^2}\sqrt{\sum (y_i-\bar{y})^2}} \) |
+
 
 ---
 
