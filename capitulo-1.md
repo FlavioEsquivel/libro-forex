@@ -15,14 +15,71 @@ El Forex permite convertir una divisa en otra, y los precios son determinados po
 
 ## 1.2 Pares de divisas y cotizaciones
 
-Las divisas se negocian en pares, por ejemplo: EUR/USD, USD/JPY, GBP/USD. La primera divisa es la base, la segunda es la cotizada.
+### 1.2.1 Definición y estructura de un par de divisas
 
-- **Cotización:** es el precio al que se puede comprar o vender el par.
-- **Bid:** precio para vender la base.
-- **Ask:** precio para comprar la base.
-- **Spread:** diferencia entre ask y bid.
+En el mercado Forex, las divisas se negocian siempre en pares, donde la primera divisa es la **moneda base** y la segunda es la **moneda cotizada**. Por ejemplo:
 
-**Ejemplo:** Si EUR/USD tiene bid=1.1010 y ask=1.1012, el spread es 0.0002 (2 pips).
+\[
+\text{EUR/USD} = \frac{\text{USD}}{1 \text{ EUR}}
+\]
+
+Esto significa que el precio del par indica cuántos dólares estadounidenses (USD) se necesitan para comprar 1 euro (EUR).
+
+En este capítulo usaremos siempre la notación estándar de moneda base seguida por moneda cotizada, como en EUR/USD.
+
+---
+
+### 1.2.2 Precios Bid, Ask y Spread
+
+- **Bid:** precio para vender la moneda base (EUR).
+- **Ask:** precio para comprar la moneda base (EUR).
+- **Spread:** diferencia entre Ask y Bid.
+
+Por ejemplo, si el par EUR/USD tiene:
+
+- \(P_{bid} = 1.1010\)
+- \(P_{ask} = 1.1012\)
+
+El spread es \(0.0002\) USD o 2 pips.
+
+---
+
+### 1.2.3 ¿Qué significa comprar o vender EUR/USD?
+
+- **Comprar EUR/USD:** significa comprar euros pagando dólares al precio Ask.
+- **Vender EUR/USD:** significa vender euros recibiendo dólares al precio Bid.
+
+Ejemplo: para comprar 1,000 euros al Ask 1.1012 pagarás:
+
+\[
+1000 \times 1.1012 = 1101.2 \text{ USD}
+\]
+
+Para vender 1,000 euros al Bid 1.1010 recibirás:
+
+\[
+1000 \times 1.1010 = 1101.0 \text{ USD}
+\]
+
+---
+
+### 1.2.4 Impacto del spread en las operaciones
+
+La diferencia entre el precio de compra y venta implica un costo para el trader, que se calcula como:
+
+\[
+\text{Costo por spread} = Q \times (P_{ask} - P_{bid})
+\]
+
+donde \(Q\) es la cantidad en euros.
+
+---
+
+### 1.2.5 Ejercicios prácticos
+
+1. Si compras 5,000 euros a \(P_{ask} = 1.1012\) y los vendes inmediatamente a \(P_{bid} = 1.1010\), ¿cuál es la pérdida por spread?
+
+2. Para el par EUR/USD con un spread de 3 pips, calcula el costo para una operación de 10,000 euros.
 
 ---
 
