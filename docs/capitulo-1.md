@@ -20,7 +20,7 @@ El Forex permite convertir una divisa en otra, y los precios son determinados po
 En el mercado Forex, las divisas se negocian siempre en pares, donde la primera divisa es la **moneda base** y la segunda es la **moneda cotizada**. Por ejemplo:
 
 $$
-\text{EUR/USD} = \frac{\text{USD}}{1 \text{ EUR}}
+\operatorname{EUR/USD} = \frac{\operatorname{USD}}{1\, \operatorname{EUR}}
 $$
 
 Esto significa que el precio del par indica cuántos dólares estadounidenses (USD) se necesitan para comprar 1 euro (EUR).
@@ -52,13 +52,13 @@ El spread es \(0.0002\) USD o 2 pips.
 Ejemplo: para comprar 1,000 euros al Ask 1.1012 pagarás:
 
 $$
-1000 \times 1.1012 = 1101.2 \text{ USD}
+1000 \times 1.1012 = 1101.2 \mathrm{ USD}
 $$
 
 Para vender 1,000 euros al Bid 1.1010 recibirás:
 
 $$
-1000 \times 1.1010 = 1101.0 \text{ USD}
+1000 \times 1.1010 = 1101.0 \mathrm{ USD}
 $$
 
 ---
@@ -68,7 +68,7 @@ $$
 La diferencia entre el precio de compra y venta implica un costo para el trader, que se calcula como:
 
 $$
-\text{Costo por spread} = Q \times (P_{ask} - P_{bid})
+\mathrm{Costo por spread} = Q \times (P_{ask} - P_{bid})
 $$
 
 donde \(Q\) es la cantidad en euros.
@@ -124,7 +124,7 @@ $$
 Para dos series \(X = \{x_i\}\) y \(Y = \{y_i\}\), la correlación de Pearson es:
 
 $$
-\rho_{X,Y} = \frac{\text{cov}(X,Y)}{\sigma_X \sigma_Y} = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
+\rho_{X,Y} = \frac{\mathrm{cov}(X,Y)}{\sigma_X \sigma_Y} = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
 $$
 
 Va entre -1 y 1, indicando fuerza y dirección de relación lineal.
