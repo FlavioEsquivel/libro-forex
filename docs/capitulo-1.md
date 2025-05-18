@@ -85,15 +85,130 @@ donde \(Q\) es la cantidad en euros.
 
 ## 1.3 Conceptos básicos de trading
 
-- **Lote:** cantidad estándar para operar, generalmente 100,000 unidades de la divisa base.
-- **Apalancamiento:** permite controlar una posición mayor con menos capital (ej. 1:100).
-- **Margen:** capital necesario para abrir una posición apalancada.
+El trading en Forex implica una combinación de conocimientos técnicos, estratégicos y una comprensión clara de los términos fundamentales. En esta sección se exploran en profundidad los elementos básicos del trading para cimentar una base sólida.
 
-**Órdenes:**
+---
 
-- Orden de mercado: se ejecuta inmediatamente al precio actual.
-- Orden límite: se ejecuta cuando el precio alcanza un nivel específico.
-- Orden stop: se usa para limitar pérdidas o asegurar ganancias.
+### 1.3.1 Lote
+
+Un **lote** es la unidad estándar para medir la cantidad de divisa que se negocia en una operación. Existen tres tamaños de lote comúnmente utilizados:
+
+- **Lote estándar:** 100,000 unidades de la divisa base.
+- **Mini lote:** 10,000 unidades.
+- **Micro lote:** 1,000 unidades.
+
+> Por ejemplo, al operar un lote estándar en el par EUR/USD, estás comprando o vendiendo 100,000 euros.
+
+**Importancia del lote:**  
+El tamaño del lote influye directamente en el nivel de riesgo y en la magnitud del beneficio o pérdida. Una variación de un pip en un lote estándar equivale a aproximadamente **10 USD**. Por tanto, un movimiento de 50 pips a tu favor supondría 500 USD de ganancia (o pérdida, si es en contra).
+
+---
+
+### 1.3.2 Apalancamiento
+
+El **apalancamiento financiero** permite controlar una posición más grande con un capital menor. Se expresa como una proporción:
+
+- Ejemplo: apalancamiento 1:100 significa que por cada 1 USD de capital propio puedes controlar 100 USD del mercado.
+
+> Esto implica que con 1,000 USD puedes abrir una posición de hasta 100,000 USD.
+
+**Ventajas y riesgos:**
+
+- ✅ Aumenta el potencial de ganancias.
+- ❌ También aumenta el riesgo de pérdidas, ya que amplifica los movimientos del mercado.
+
+El uso adecuado del apalancamiento requiere una gestión estricta del riesgo. Un apalancamiento alto mal gestionado puede llevar rápidamente a una **liquidación automática** de la cuenta.
+
+---
+
+### 1.3.3 Margen
+
+El **margen** es el capital requerido como garantía para abrir una posición apalancada. No se trata de un costo, sino de una retención temporal de capital.
+
+\[
+\text{Margen requerido} = \frac{\text{Tamaño de la operación}}{\text{Apalancamiento}}
+\]
+
+> Por ejemplo, para abrir una posición de 100,000 USD con apalancamiento 1:100 necesitas un margen de:
+
+\[
+\frac{100,000}{100} = 1,000 \text{ USD}
+\]
+
+**Margen de mantenimiento:** Es el mínimo que debes tener en la cuenta para mantener una posición abierta. Si tu capital cae por debajo de ese nivel, se produce una **margin call**, y tus operaciones pueden cerrarse automáticamente.
+
+---
+
+### 1.3.4 Tipos de órdenes
+
+Las **órdenes** son instrucciones que se dan a la plataforma de trading para abrir o cerrar operaciones en condiciones específicas. Son herramientas clave en la estrategia y gestión de riesgo.
+
+#### a. Orden de mercado
+
+- Se ejecuta **inmediatamente** al mejor precio disponible.
+- Garantiza ejecución, pero no un precio exacto.
+- Ideal en mercados muy líquidos o cuando la prioridad es entrar/salir rápidamente.
+
+#### b. Orden límite (Limit Order)
+
+- Se coloca a un precio **mejor que el actual** del mercado.
+- Útil para entrar al mercado cuando se alcanza un nivel técnico deseado.
+- Ejemplo: si EUR/USD está en 1.1010 y deseas comprar en 1.1000, puedes colocar una orden límite de compra.
+
+#### c. Orden stop (Stop Order)
+
+- Se activa cuando el precio **supera un cierto umbral**.
+- Útil para:
+  - **Detener pérdidas** (stop-loss).
+  - **Asegurar ganancias** (trailing stop).
+  - Entrar en operaciones si se rompe una resistencia o soporte (buy/sell stop).
+
+---
+
+### 1.3.5 Ejemplo de operación combinando conceptos
+
+Supongamos que deseas comprar 1 lote de EUR/USD (100,000 euros) con un apalancamiento 1:100. El precio actual es 1.1010.
+
+- Margen requerido:  
+  \[
+  \frac{100,000}{100} = 1,000 \text{ USD}
+  \]
+
+- Colocas una orden límite de compra en 1.1000 con un stop-loss en 1.0950 y un take-profit en 1.1100.
+
+- Si se ejecuta y alcanza el TP:
+  \[
+  (1.1100 - 1.1000) \times 100,000 = 1,000 \text{ USD de ganancia}
+  \]
+
+- Si cae al SL:
+  \[
+  (1.1000 - 1.0950) \times 100,000 = 500 \text{ USD de pérdida}
+  \]
+
+Este ejemplo demuestra cómo el lote, el apalancamiento, el margen y las órdenes se combinan en una operación real.
+
+---
+
+### 1.3.6 Gestión del riesgo y del capital
+
+- Nunca uses todo tu capital como margen.
+- Limita el riesgo por operación (por ejemplo, 1-2% del capital total).
+- Usa órdenes stop-loss siempre.
+- Diversifica: no expongas toda tu cuenta a una sola operación o par.
+
+---
+
+### 1.3.7 Psicología del trading
+
+Aunque no es un concepto técnico, la **disciplina emocional** es clave. Los errores más comunes suelen ser:
+
+- Operar impulsivamente sin análisis.
+- Mover el stop-loss por miedo.
+- Sobreapalancarse por codicia.
+
+La combinación de **educación técnica**, **gestión del riesgo**, y **control emocional** es lo que define a un trader exitoso.
+
 
 ---
 
